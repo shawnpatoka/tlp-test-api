@@ -4,4 +4,4 @@ from .models import TeeTimes
 class TeeTimesSerializer(serializers.ModelSerializer):
   class Meta:
     model = TeeTimes
-    fields = ("date","time","is_reserved","player_1_name","player_1_is_checkedin")
+    fields = ("id", "date","time","is_reserved","player_1_name","player_1_is_checkedin")
