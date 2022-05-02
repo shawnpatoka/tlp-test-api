@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from .serializers import TeeTimesSerializer
+from .models import TeeTimes
+
 
 @api_view(['GET'])
 def get_tee_times(request):
@@ -33,4 +36,10 @@ def get_tee_times(request):
       'time': '8:20 am',
     },
   ]
-  return Response(tee_times) 
+
+  all_tee_times = TeeTimes.objects.all()
+  serialized = TeeTimesSerializer(all_tee_times, many=True)
+  print(serialized)
+  print(type(serialized))
+
+  return Response(serialized.data) 
