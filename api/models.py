@@ -24,7 +24,7 @@ class TeeTimes(models.Model):
   player_3_is_checkedin      = models.BooleanField('Player 3 Checked In', default=False, null=False, blank=False)
 
   def __str__(self):
-      return str(self.date) + " " + str(self.time)
+      return str(self.date) + " " + str(self.time) + " - " + self.player_1_name
 
   class Meta:
       verbose_name = 'Tee Times'

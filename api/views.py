@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializers import TeeTimesSerializer
 from .models import TeeTimes
-
+# from rest_framework import filters
 
 @api_view(['GET'])
 def get_tee_times(request):
@@ -13,6 +13,13 @@ def get_tee_times(request):
   # print(type(serialized))
 
   return Response(serialized.data) 
+
+
+# class GetAllTeeTimes(filters.SearchFilter):
+#   queryset = TeeTimes.objects.all()
+#   serializer_class = TeeTimesSerializer
+#   filter_backends = [filter.OrderingFilter]
+#   ordering_fields = ['date','time']
 
 
 
